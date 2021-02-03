@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--单纯利用html实现一个简单的网页界面-->
+<!--利用table来布局-->
+<!--当一行只有一个元素时：<tr><td></td></tr>-->
+<!--当一行有多个元素时：<tr><td><table>...</table></td></tr>-->
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>一个简单的网页</title>
+</head>
+<body>
+<!--最外层的table，用于整个页面的布局-->
+<table width="100%" align="center">
+    <!--第1行-->
+    <tr>
+        <td><img src="../sources/banner图.png" width="100%" align="center" height="120"></td>
+    </tr>
+    <!--第二行，一行分为三块-->
+    <tr>
+        <td>
+            <table width="100%" align="center">
+                <tr>
+                    <td><img src="../sources/图标1.png" height="100"></td>
+                    <td><img src="../sources/搜索框.png" height="80"></td>
+                    <td><span>联系电话:123456</span></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <!--第三行，一行均匀分为四块，全部超链接指向www.baidu.com-->
+    <tr>
+        <td>
+            <table width="100%" align="center">
+                <tr bgcolor="#7fffd4" align="center" height="45">
+                    <td><a target="_blank" href="http://www.baidu.com">百度</a></td>
+                    <td><a target="_blank" href="http://www.baidu.com">百度</a></td>
+                    <td><a target="_blank" href="http://www.baidu.com">百度</a></td>
+                </tr>
+            </table>
+            <hr color="purple">
+        </td>
+    </tr>
+    <!--第四行，一行均匀分为四块，每块又在垂直方向分为三块，用<p></p>隔开-->
+    <tr>
+        <td>
+            <table width="100%" align="center" cellspacing="15" cellpadding="10">
+                <tr width="100%" align="center" >
+                    <td><img src="../sources/图标2.jpg" width="350">
+                    <p>图片1图片1图片1图片1图片1图片1图片1图片1图片1图片1</p>
+                        <font color="red">998</font>
+                    </td>
+                    <td><img src="../sources/图标2.jpg" width="350">
+                        <p>图片1图片1图片1图片1图片1图片1图片1图片1图片1图片1</p>
+                        <font color="red">998</font>
+                    </td>
+                    <td><img src="../sources/图标2.jpg" width="350">
+                        <p>图片1图片1图片1图片1图片1图片1图片1图片1图片1图片1</p>
+                        <font color="red">998</font>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <!--第五行-->
+    <tr>
+        <td width="100%" align="center" bgcolor="orange" height="40">
+            Cindy.H 版权所有Copyright 2021-...©, All Rights Reserved 闽
+        </td>
+    </tr>
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+</body>
+</html>
