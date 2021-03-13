@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--利用BOM.windows.setInterval实现轮播图-->
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<body>
+<!--先显示一张图出来-->
+<img id="image" src="../resources/banner_1.jpg" width="100%">
+<script>
+    let number = 1;
+    //定义一个函数，选取图片
+    function fun(){
+        if (number == 3){
+            number = 1;
+        }
+        else number++;
+        var image = document.getElementById("image");
+        image.src = "../resources/banner_" + number + ".jpg";
+    }
+    setInterval(fun, 3000);
+</script>
+</body>
+</html>

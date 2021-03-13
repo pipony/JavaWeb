@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--学习所谓的变量提升，这在课程中是没有提到的-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.举例探究变量提升
+    //1.1 正常情况下，先赋值再输出
+    var value;
+    value = 1;
+    document.write(value);
+    document.write("<br>");
+    //1.2 先输出再赋值
+    var value1;
+    document.write(value1);   //undefined
+    value1 = 2;
+    document.write("<br>");
+    //1.3 先赋值后定义（变量提升）
+    value2 = 3;
+    document.write(value2);
+    var value2;
+    document.write("<br>");
+    //1.4 用let替代var看是否还有“变量提升”，结果是会报错，什么都没有输出
+    // value3 = 4;
+    // document.write(value3);
+    // let value3;
+    // document.write("<br>");
+
+    //2.举例探究函数的变量提升
+    //2.1 正常的函数声明和使用
+    var fun = function (){
+        document.write("2.1");
+        document.write("<br>");
+    }
+    fun();
+    //2.2 先使用再声明函数（函数字面量式），报错，没有输出
+    // fun1();
+    // var fun1 = function (){
+    //     document.write("2.2");
+    //     document.write("<br>");
+    // }
+    //2.3 先使用再声明函数（函数声明式），正常输出
+    fun2();
+    function fun2(){
+        document.write("2.3");
+        document.write("<br>");
+    };
+
+</script>
+</body>
+</html>

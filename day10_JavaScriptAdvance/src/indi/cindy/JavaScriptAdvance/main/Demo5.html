@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--学习DOM-->
+<head>
+    <meta charset="UTF-8">
+    <title>学习DOM</title>
+    <style>
+        #div1{
+            border-style: dotted;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+        #div2{
+            border: chartreuse;
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+        }
+        .space{
+            border-style: dotted;
+            background-color: lavender;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<span id="span1" >A</span>
+<span id="span2" >B</span>
+<span class="class1" >C</span>
+<span name="name1" >D</span>
+<span id="previousId" >E</span>
+<div id="div1">div1</div>
+<button type="button" id="button1">添加小方块</button>
+<button type="button" id="button2">去掉小方块</button>
+<div id="space" class="space">这是一个写字的地方</div>
+<button type="button" id="button3">替换文字</button>
+<br>
+<a href="http://www.baidu.com" id="web">网址</a>
+<button type="button" id="button4">修改成豆瓣的网址吧</button>
+
+<script>
+    //一、关于document
+    //1.获取element
+    var span1 = document.getElementById("span1");
+    var span2 = document.getElementById("span2");
+    var arrays1 = document.getElementsByTagName("span");
+    var arrays2 = document.getElementsByClassName("class1");
+    var arrays3 = document.getElementsByName("name1");
+
+    //输出
+    // alert(span1.innerText);
+    // alert(span2.innerText);
+    //print(arrays1);
+    //print(arrays2);
+    //print(arrays3);
+
+    function print(array){
+        for (let i = 0; i < array.length; i++){
+            alert(array[i].innerText);
+        }
+    }
+
+    //2.创建其他DOM对象
+    var table = document.createElement("table");
+    //alert(table);
+
+    //二、关于element
+    //setAttribute
+    var element1 = document.getElementById("previousId");
+    element1.setAttribute("id", "afterId");
+    //alert(element1.id);
+
+    //三、关于Node
+    let button1 = document.getElementById("button1");
+    let button2 = document.getElementById("button2");
+    button1.onclick = function (){  //添加小方块
+        //每次添加的小方块要重新创建
+        let div1 = document.getElementById("div1");
+        let newDiv = document.createElement("div");
+        newDiv.setAttribute("id", "div2");
+        div1.appendChild(newDiv);
+    }
+    button2.onclick = function (){  //删除小方块
+        let div1 = document.getElementById("div1");
+        let div2 = document.getElementById("div2");
+        div1.removeChild(div2);
+    }
+
+    //四、修改innerHTML,使用html的属性，控制样式
+    var space = document.getElementById("space");
+    var button3 = document.getElementById("button3");
+    button3.onclick = function (){
+        space.innerText = "替换文字成功！";
+    }
+    var link = document.getElementById("web");
+    var button4 = document.getElementById("button4");
+    button4.onclick = function (){
+        link.setAttribute("href", "http://www.douban.com");
+    }
+    link.style.backgroundColor = "yellow";
+</script>
+</body>
+</html>

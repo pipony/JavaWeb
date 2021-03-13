@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--通过事件绑定，用js代码模仿灯泡开关-->
+<head>
+    <meta charset="UTF-8">
+    <title>控制灯泡开关</title>
+</head>
+
+<body>
+<img id="light" src = "../resources/off.gif">
+<script>
+    //获取元素
+    var light = document.getElementById("light");
+    //通过一个boolean来控制开关状态
+    let status = false;  //如果是var而不是let的话，这个程序就错了
+    //究其原因：js的变量提升！！！！
+    //可是我也不知道为啥会因为这样会出现错误的结果。。后面再想
+    var fun = function(){
+        if (status){
+            alert("现在是亮的，把灯关了");
+            light.src = "../resources/off.gif";
+            status = false;
+        }
+        else {
+            alert("现在是暗的，把灯开了");
+            light.src = "../resources/on.gif";
+            status = true;
+        }
+    }
+    //通过onclick绑定事件,此时fun应已经定义过了
+    light.onclick = fun;
+    //注意，不是light.onclick = fun(); 更不是light.onclick(fun);
+</script>
+</body>
+</html>
