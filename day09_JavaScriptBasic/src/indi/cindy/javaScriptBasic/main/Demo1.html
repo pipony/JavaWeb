@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--实现JavaScript基本中的九九乘法表-->
+<head>
+    <meta charset="UTF-8">
+    <title>九九乘法表</title>
+     <!--注意，style是在head里面的-->
+    <style>
+        td{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<script>
+    //注意，<script>是外在body外面的
+    //还要特别注意：是document而不是Document
+    document.write("<table align='center'>");
+    //开始循环
+    for (var i = 1; i <= 9; i++){
+        document.write("<tr>");
+        for (var j = 1; j <=i; j++){
+            document.write("<td>");
+            document.write(i + "*" + j + "="+ (i*j));
+            document.write("</td>");  //要记得还要加上</...>
+        }
+        //换行
+        document.write("<br>");
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+<body>
+
+</body>
+</html>
