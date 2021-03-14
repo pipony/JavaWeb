@@ -4,8 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <title>表格全选</title>
+    <style>
+        table{
+            border:1px solid #F00;
+        }
+        table td{
+            border-left:1px solid #F00;
+            border-top:1px solid #F00
+        }
+    </style>
 </head>
+<script>
+    // //getElement
+    // let radio1 = document.getElementById("radio1");
+    // let radio2 = document.getElementById("radio2");
+    // let radio3 = document.getElementById("radio3");
+    // let radio4 = document.getElementById("radio4");
+    // let button1 = document.getElementById("button1");
+    // let button2 = document.getElementById("button2");
+    // let button3 = document.getElementById("button3");
+    //
+    // //设置button动作
+    // button1.onclick = function (){
+    //     radio1.setAttribute("checked", "true");
+    //     radio2.setAttribute("checked", "true");
+    //     radio3.setAttribute("checked", "true");
+    //     radio4.setAttribute("checked", "true");
+    // }
+    // button2.onclick = function (){
+    //     radio1.setAttribute("checked", "false");
+    //     radio2.setAttribute("checked", "false");
+    //     radio3.setAttribute("checked", "false");
+    //     radio4.setAttribute("checked", "false");
+    // }
+    /*
+   以上太复杂，所以接下来改为用数组
+    */
+
+    //当页面加载完毕后才执行
+    window.onload = function (){
+        //getElement
+        let buttons = document.getElementsByName("buttons");
+        let radios = document.getElementsByName("radios");
+
+        //绑定事件
+        buttons[0].onclick = function (){
+            for (var i = 0; i < radios.length; i++){
+                radios[i].checked = true;
+            }
+        }
+        buttons[1].onclick = function (){
+            for (var i = 0; i < radios.length; i++){
+                radios[i].checked = false;
+            }
+        }
+        buttons[2].onclick = function (){
+            for (var i = 0; i < radios.length; i++){
+                radios[i].checked = !radios[i].checked;
+            }
+        }
+        radios[0].onclick = function (){
+            for (var i = 1; i < radios.length; i++){
+                radios[i].checked = radios[0].checked;
+            }
+        }
+        //额外设置视觉效果：当鼠标移到某行时，某行有背景色
+        var trs = document.getElementsByTagName("tr");
+        //挨个为tr绑定事件
+        for (let i = 0; i < trs.length; i++){
+            trs[i].onmouseenter = function (){
+                trs[i].style.backgroundColor = "#FF69B4";
+            }
+            trs[i].onmouseleave = function (){
+                trs[i].style.backgroundColor = "white";
+            }
+        }
+    }
+</script>
 <body>
+<div align="center">学生信息表</div>
+<table align="center">
+    <tr>
+        <!--用checkbox而不是radio-->
+        <th><input type="checkbox" name="radios"></th>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="radios"></td>
+        <td>1</td>
+        <td>令狐冲</td>
+        <td>男</td>
+        <td><a href="javascript:void(0);">删除</a></td>  <!--先不做操作-->
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="radios"></td>
+        <td>2</td>
+        <td>任我行</td>
+        <td>男</td>
+        <td><a href="javascript:void(0);">删除</a></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="radios"></td>
+        <td>3</td>
+        <td>岳不群</td>
+        <td>？</td>
+        <td><a href="javascript:void(0);">删除</a></td>
+    </tr>
+</table>
+<div align="center">
+<button type="button" name="buttons">全选</button>
+<button type="button" name="buttons">全不选</button>
+<button type="button" name="buttons">反选</button>
+</div>
 
 </body>
 </html>
