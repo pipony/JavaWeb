@@ -58,10 +58,6 @@ public class LoginServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        System.out.println("user");
-        System.out.println(user);
-        System.out.println("paras");
-        System.out.println(paras);
         //4.2 调用login方法查询，并返回User对象
         UserService us = new UserServiceImpl();
         User findUser = us.login(user);
